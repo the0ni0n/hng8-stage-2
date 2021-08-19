@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"net/http"
+	"os"
 )
 
 var tpl *template.Template
@@ -20,8 +21,12 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", index)
-	//http.HandleFunc("/contact", contact)
-	http.ListenAndServe(":8000", nil)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "80"
+	}
+	http.ListenAndServe(":"+port, nil)
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
