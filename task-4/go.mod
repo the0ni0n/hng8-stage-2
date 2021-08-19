@@ -1,3 +1,3 @@
-module github.com/the0ni0n/qq/hng8-stage-2/task-4
+module github.com/the0ni0n/hng8-stage-2/tree/master/task-4
 
 go 1.16
